@@ -15,9 +15,6 @@ Steps:
 5. Train Brats Segmentation Model with U-Net backbone with segmentation_unet_explore.ipynb. 
 Credit to this wonderful repository for making this happen so seamlessly --> https://github.com/IntelAI/unet/tree/master/2D
 
-Example Output from Segmentation Model
-![pred_210.png](Brats/inference_examples/pred_210.png)
-
 6. Train Methylation Model with ResNet-50 backbone with methylation_training.ipynb
 
 Example Output from Segmentation Model
