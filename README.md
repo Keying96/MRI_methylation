@@ -10,12 +10,26 @@ Steps:
 
 3. Explore TCGA-GBM data-set with exploratory_analysis.ipynb
 
+4. Preprocess TCGA-GBM data-set with preprocess_tcga_gbm.ipynb. Preprocessing is done on the fly during training but this notebook will save comparisons between original and preprocessed images.
+
+Preprocessing is done by applying the slope and intercept found in the dicom meta-data to the pixel values to return Hounsfield Units. Following this, a window is applied to the pixel data and pixel values lower and higher than the min and max window values are set to the min and max window values, respectively.
+
+Although the pixel values differ there seems to be no noticable visual difference
+
+![000000.jpg](Methylation/inference_examples_preprocess/000000.jpg)
+
 4. Explore BRATS data-set with segmentation_unet_explore.ipynb
 
-5. Train Brats Segmentation Model with U-Net backbone with segmentation_unet_explore.ipynb. 
+5. Train Brats Segmentation Model with U-Net backbone, followed by using the trained model to predict on the TCGA dataset with tumour_unet_seg.ipynb.
+
 Credit to this wonderful repository for making this happen so seamlessly --> https://github.com/IntelAI/unet/tree/master/2D
 
 6. Train Methylation Model with ResNet-50 backbone with methylation_training.ipynb
 
+Training is done on the frames in the TCGA data-set which the BRATS U-Net model found a presence of a tumour.
+Higher accuracies are expected by isolating the tumour from each frame and using that as input to the methylation model. Such an approach remains to be investigated.
+
+The final prediction is on a video level and is done by using a majority rules rule which consists of predicting a methylation status of true if the majority of frames are predicted to have a positive methylation status and False otherwise.
+
 Example Output from Segmentation Model
-![000003.jpg](Methylation/inference_examples/000003.jpg)
+![000003.jpg](Methylation/inference_examples_seg/000003.jpg)
