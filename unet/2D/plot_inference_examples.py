@@ -131,9 +131,8 @@ def plot_results(model, imgs_validation, msks_validation,
     plt.imshow(pred_mask[0, :, :, 0], origin="lower")
     plt.title("Prediction\n(Dice = {:.4f})".format(calc_dice(msk, pred_mask)))
     plt.axis("off")
-
     png_filename = os.path.join(png_directory, "pred_{}.png".format(img_no))
-    plt.savefig(png_filename, bbox_inches="tight", pad_inches=0)
+    plt.savefig(png_filename, bbox_inches="tight")
     print("Dice {:.4f}, Soft Dice {:.4f}, Saved png file to: {}".format(
         calc_dice(msk, pred_mask), calc_soft_dice(msk, pred_mask), png_filename))
 
