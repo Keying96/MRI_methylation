@@ -22,6 +22,9 @@ Although the pixel values differ there seems to be no noticable visual differenc
 
 5. Train Brats Segmentation Model with U-Net backbone, followed by using the trained model to predict on the TCGA dataset with tumour_unet_seg.ipynb.
 
+Example Output from Segmentation Model applied on BRATS testing set
+![pred_102.jpg](Brats/inference_examples/pred_102.png)
+
 Credit to this wonderful repository for making this happen so seamlessly --> https://github.com/IntelAI/unet/tree/master/2D
 
 6. Train Methylation Model with ResNet-50 backbone with methylation_training.ipynb
@@ -31,5 +34,5 @@ Higher accuracies are expected by isolating the tumour from each frame and using
 
 The final prediction is on a video level and is done by using a majority rules rule which consists of predicting a methylation status of true if the majority of frames are predicted to have a positive methylation status and False otherwise.
 
-Example Output from Segmentation Model
+Example Output from Segmentation Model applied on TCGA dataset 
 ![000003.jpg](Methylation/inference_examples_seg/000003.jpg)
