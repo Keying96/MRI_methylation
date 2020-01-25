@@ -16,7 +16,7 @@ Preprocessing is done by applying the slope and intercept found in the dicom met
 
 Although the pixel values differ there seems to be no noticable visual difference
 
-![000000.jpg](Methylation/inference_examples_preprocess/000000.jpg)
+![000022.jpg](Methylation/inference_examples_preprocess/000022.jpg)
 
 4. Explore BRATS data-set with segmentation_unet_explore.ipynb
 
